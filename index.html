@@ -267,15 +267,17 @@ nav a:hover {color:var(--green)}
 }
 
 .amanda-photo-backdrop {
-  position:absolute;
-  inset:-22px;
-  width:calc(100% + 44px);
-  height:calc(100% + 44px);
-  object-fit:cover;
-  object-position:center 25%;
-  filter:blur(18px) brightness(.48);
-  transform:scale(1.08);
-  z-index:-1;
+    display: none;
+}
+
+.amanda-photo-frame {
+    background: #242424;
+    overflow: hidden;
+}
+
+.amanda-photo-frame img {
+    object-fit: contain;
+    object-position: center;
 }
 
 .amanda-photo {
