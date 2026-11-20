@@ -689,11 +689,11 @@ footer span {
   </h1>
 
   <!-- STATIC IMAGE: DOES NOT LINK TO INSTAGRAM -->
-  <img
-    class="travel-hero"
-    src="amanda-king-thumbnail.png"
-    alt="Amanda King at an outdoor event"
-  >
+ <img
+  class="travel-hero"
+  src="https://images.squarespace-cdn.com/content/v1/67eb60db253c5c45656397d2/a6fde003-084c-44bf-bf31-79ff9d02c3a4/DSC01393.JPG"
+  alt="Amanda King"
+>
 
   <div class="travel-caption">
     CREATOR SPOTLIGHT · AMANDA KING
