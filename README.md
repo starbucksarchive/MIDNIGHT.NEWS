@@ -4,22 +4,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MIDNIGHT NEWS — Every hour has a story.</title>
 
-<title>MIDNIGHT NEWS. — Every hour has a story.</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --background: #080b09;
-  --surface: #101612;
-  --surface-light: #151d18;
+  --bg: #101110;
+  --panel: #191c19;
   --green: #78d99a;
-  --cream: #eeeade;
-  --muted: #939b93;
-  --line: rgba(120,217,154,0.25);
+  --travel-accent: #b6c5a3;
+  --text: #eeeee8;
+  --muted: #999d96;
+  --line: #303630;
 }
 
 * {
@@ -28,15 +25,12 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
-  background: var(--background);
-  color: var(--cream);
+  background: var(--bg);
+  color: var(--text);
   font-family: 'DM Sans', sans-serif;
-  line-height: 1.6;
 }
 
 a {
@@ -44,101 +38,55 @@ a {
   text-decoration: none;
 }
 
-button, input {
-  font: inherit;
-}
-
-/* TOP BAR */
-
-.topbar {
+.topline {
+  padding: 12px 6%;
+  border-bottom: 1px solid var(--line);
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 13px 6%;
-  border-bottom: 1px solid var(--line);
   color: var(--muted);
   font-size: 10px;
   letter-spacing: 2px;
-  text-transform: uppercase;
 }
 
-.clock-area {
-  text-align: right;
-}
-
-/* MASTHEAD */
-
-.masthead {
+.header {
   text-align: center;
-  padding: 38px 15px 27px;
+  padding: 35px 15px;
 }
 
 .logo {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(38px, 7vw, 76px);
-  font-weight: 500;
+  font-size: clamp(36px, 6vw, 65px);
   letter-spacing: 5px;
-  line-height: 1.1;
-}
-
-.logo span {
-  color: var(--green);
+  font-weight: 500;
 }
 
 .tagline {
-  margin-top: 12px;
-  font-size: 10px;
-  color: var(--muted);
-  letter-spacing: 5px;
-  text-transform: uppercase;
+  color: var(--green);
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  margin-top: 8px;
 }
 
-/* NAVIGATION */
-
 nav {
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
   display: flex;
   justify-content: center;
-  align-items: center;
+  gap: 35px;
   flex-wrap: wrap;
-  gap: 34px;
-  padding: 16px 12px;
+  padding: 17px 10px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 
 nav a {
+  color: #c6c9c1;
   font-size: 10px;
   letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--muted);
-  transition: 0.25s;
+  transition: .3s;
 }
 
 nav a:hover {
   color: var(--green);
 }
-
-/* BREAKING STRIP */
-
-.breaking {
-  background: var(--green);
-  color: #07100a;
-  padding: 11px 6%;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-.breaking-label {
-  font-weight: 700;
-  border-right: 1px solid rgba(0,0,0,0.3);
-  padding-right: 15px;
-}
-
-/* GENERAL */
 
 .container {
   width: 88%;
@@ -146,820 +94,751 @@ nav a:hover {
   margin: auto;
 }
 
-.section-heading {
+.section-label {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--green);
+  margin-bottom: 23px;
+  text-transform: uppercase;
+}
+
+.breaking {
+  padding: 38px 0 15px;
+}
+
+.breaking-bar {
+  background: var(--panel);
+  padding: 16px 20px;
+  border-left: 3px solid var(--green);
   display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 28px;
-  font-size: 11px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--green);
+  gap: 18px;
+  flex-wrap: wrap;
+  font-size: 12px;
 }
 
-.section-heading::after {
-  content: "";
-  height: 1px;
-  background: var(--line);
-  flex: 1;
+.live { color: var(--green); }
+
+/* AMANDA KING FEATURE */
+
+.amanda {
+  padding: 55px 0 75px;
+  border-bottom: 1px solid var(--line);
 }
 
-/* COVER */
-
-.cover {
-  padding: 65px 0 75px;
-}
-
-.cover-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 45px;
-  align-items: center;
-}
-
-.cover-image {
-  width: 100%;
-  height: 470px;
-  object-fit: cover;
-  background: var(--surface);
-}
-
-.cover-copy .eyebrow {
-  color: var(--green);
-  font-size: 10px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-
-.cover-copy h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(38px, 5vw, 66px);
-  line-height: 1.12;
-  font-weight: 400;
-  margin-bottom: 22px;
-}
-
-.cover-copy p {
-  color: var(--muted);
-  font-size: 14px;
-  max-width: 450px;
-}
-
-.cover-note {
-  display: inline-block;
-  margin-top: 30px;
-  color: var(--green);
-  border-bottom: 1px solid var(--green);
-  padding-bottom: 5px;
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-/* EMPTY NEWS SECTION */
-
-.latest {
-  padding: 65px 0;
-  border-top: 1px solid var(--line);
-}
-
-.empty-news {
-  border: 1px solid var(--line);
-  background: var(--surface);
-  padding: 65px 20px;
+.amanda-heading {
   text-align: center;
+  margin-bottom: 35px;
 }
 
-.empty-news h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 32px;
-  font-weight: 400;
-  margin-bottom: 10px;
-}
-
-.empty-news p {
-  color: var(--muted);
-  font-size: 13px;
-}
-
-/* SEARCH */
-
-.search-section {
-  padding: 45px 0;
-  border-top: 1px solid var(--line);
-}
-
-.search-box {
-  display: flex;
-  gap: 12px;
-  max-width: 600px;
-}
-
-.search-box input {
-  width: 100%;
-  padding: 14px 16px;
-  color: var(--cream);
-  background: var(--surface);
-  border: 1px solid var(--line);
-  outline: none;
-}
-
-.search-box input:focus {
-  border-color: var(--green);
-}
-
-.search-box button,
-.newsletter button {
-  padding: 13px 22px;
-  border: none;
-  background: var(--green);
-  color: #07100a;
+.amanda-heading .eyebrow {
+  color: var(--travel-accent);
+  letter-spacing: 4px;
   font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  cursor: pointer;
-}
-
-/* BOOKMARKS */
-
-.bookmarks {
-  padding: 45px 0;
-  border-top: 1px solid var(--line);
-}
-
-.bookmark-list {
-  color: var(--muted);
-  font-size: 13px;
-}
-
-/* TRAVEL FEATURE */
-
-.travel {
-  padding: 75px 0;
-  border-top: 1px solid var(--line);
-}
-
-.travel-label {
-  color: var(--green);
-  font-size: 10px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
   margin-bottom: 15px;
 }
 
-.travel-title {
+.amanda-heading h1 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(34px, 5vw, 58px);
-  line-height: 1.15;
   font-weight: 400;
-  margin-bottom: 35px;
-  max-width: 850px;
+  font-size: clamp(32px, 5vw, 57px);
+  line-height: 1.2;
 }
 
-.travel-hero {
+.amanda-heading h1 span {
+  color: var(--green);
+  font-style: italic;
+}
+
+.amanda-layout {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 55px;
+  align-items: center;
+}
+
+.amanda-photo {
   width: 100%;
-  height: min(720px, 75vw);
-  min-height: 340px;
+  height: 600px;
   object-fit: cover;
   object-position: center 35%;
   display: block;
-  background: var(--surface);
 }
 
-.travel-caption {
-  color: var(--muted);
+.amanda-content .category {
+  color: var(--green);
+  letter-spacing: 3px;
   font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-top: 12px;
+  margin-bottom: 20px;
 }
 
-.travel-intro {
-  max-width: 780px;
-  margin: 35px auto 65px;
+.amanda-content h2 {
   font-family: 'Playfair Display', serif;
-  font-size: 20px;
-  line-height: 1.8;
-  color: #d9d8ce;
-  text-align: center;
+  font-size: clamp(31px, 4vw, 48px);
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 22px;
+}
+
+.amanda-content h2 em {
+  color: var(--travel-accent);
+}
+
+.amanda-content p {
+  color: #b0b3ac;
+  font-size: 13px;
+  line-height: 2.1;
+  margin-bottom: 17px;
+}
+
+.amanda-content .highlight {
+  color: var(--green);
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.7;
+  margin: 25px 0;
+}
+
+.feature-meta {
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: 2px;
+  margin-top: 30px;
 }
 
 /* VIDEOS */
 
+.videos {
+  padding: 65px 0;
+  border-bottom: 1px solid var(--line);
+}
+
 .video-heading {
   font-family: 'Playfair Display', serif;
-  font-size: 31px;
+  font-size: 37px;
   font-weight: 400;
-  margin-bottom: 28px;
+  margin-bottom: 12px;
+}
+
+.video-heading span {
+  color: var(--green);
+  font-style: italic;
+}
+
+.video-intro {
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 30px;
 }
 
 .video-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 25px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
 }
 
-.video-card {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  padding: 12px;
-}
-
-.video-thumbnail {
-  position: relative;
-  display: block;
-  overflow: hidden;
-  aspect-ratio: 16 / 9;
-  background: #151d18;
-}
-
-.video-thumbnail img {
+.video-card img {
   width: 100%;
-  height: 100%;
+  aspect-ratio: 16/9;
   object-fit: cover;
   display: block;
-  transition: transform 0.4s;
+  transition: .4s;
 }
 
-.video-thumbnail:hover img {
-  transform: scale(1.04);
+.video-card:hover img {
+  opacity: .75;
 }
 
-.play-button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  background: rgba(8,11,9,0.8);
-  border: 1px solid var(--green);
+.video-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: 23px;
+  margin-top: 17px;
+}
+
+.video-card p {
+  color: var(--muted);
+  font-size: 11px;
+  margin-top: 9px;
+}
+
+/* GENERAL NEWS */
+
+.stories {
+  padding: 65px 0;
+}
+
+.toolbar {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.search {
+  background: transparent;
+  border: 1px solid var(--line);
+  padding: 12px 15px;
+  color: white;
+  outline: none;
+  width: 240px;
+}
+
+.search:focus {
+  border-color: var(--green);
+}
+
+.bookmark-toggle {
+  background: transparent;
+  border: 1px solid var(--line);
   color: var(--green);
+  padding: 12px 15px;
+  cursor: pointer;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.story {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 23px;
+}
+
+.story-image {
+  height: 190px;
+  background: linear-gradient(135deg,#303b31,#171a17);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--travel-accent);
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 3px;
+  margin-bottom: 18px;
+}
+
+.story .category {
+  color: var(--green);
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.story h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 23px;
+  font-weight: 400;
+  margin: 13px 0;
+  line-height: 1.4;
+}
+
+.story p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.story-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.save {
+  background: transparent;
+  border: none;
+  color: var(--green);
+  cursor: pointer;
   font-size: 18px;
 }
 
-.video-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 19px;
-  line-height: 1.4;
-  font-weight: 400;
-  margin: 17px 5px 7px;
-}
+.save.saved { color: white; }
 
-.video-subtitle {
+.empty {
+  display: none;
   color: var(--muted);
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin: 0 5px 8px;
-}
-
-/* SOCIAL LINKS */
-
-.follow {
-  border-top: 1px solid var(--line);
-  margin-top: 65px;
-  padding-top: 35px;
-}
-
-.follow h3 {
-  font-size: 10px;
-  color: var(--green);
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-
-.social-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 25px;
-}
-
-.social-links a {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  color: var(--muted);
-  font-size: 12px;
-  transition: 0.25s;
-}
-
-.social-links a:hover {
-  color: var(--green);
-}
-
-.social-links svg {
-  width: 19px;
-  height: 19px;
-  fill: currentColor;
+  padding: 25px;
+  text-align: center;
 }
 
 /* NEWSLETTER */
 
 .newsletter {
-  margin-top: 65px;
-  padding: 55px 20px;
-  background: var(--surface);
-  border: 1px solid var(--line);
+  background: var(--panel);
   text-align: center;
+  padding: 65px 20px;
+  margin: 20px 0 70px;
 }
 
 .newsletter h2 {
   font-family: 'Playfair Display', serif;
-  font-size: 35px;
+  font-size: 36px;
   font-weight: 400;
-  margin-bottom: 10px;
 }
+
+.newsletter h2 span { color: var(--green); }
 
 .newsletter p {
   color: var(--muted);
-  font-size: 13px;
-  margin-bottom: 25px;
+  font-size: 12px;
+  margin: 15px 0 25px;
 }
 
 .newsletter form {
   display: flex;
-  max-width: 460px;
+  max-width: 430px;
   margin: auto;
-  gap: 8px;
 }
 
 .newsletter input {
   flex: 1;
   min-width: 0;
-  padding: 13px;
-  background: var(--background);
+  padding: 14px;
+  background: transparent;
   border: 1px solid var(--line);
-  color: var(--cream);
+  color: white;
   outline: none;
+}
+
+.newsletter button {
+  background: var(--green);
+  color: #101510;
+  border: none;
+  padding: 0 20px;
+  cursor: pointer;
+  font-size: 10px;
+  letter-spacing: 1px;
 }
 
 /* FOOTER */
 
 footer {
   border-top: 1px solid var(--line);
-  margin-top: 70px;
-  padding: 30px 6%;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 15px;
+  text-align: center;
+  padding: 40px 15px;
   color: var(--muted);
   font-size: 10px;
   letter-spacing: 2px;
-  text-transform: uppercase;
+  line-height: 2.5;
 }
 
-footer span {
-  color: var(--green);
+footer strong {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--text);
+  letter-spacing: 4px;
 }
 
-/* RESPONSIVE */
+.socials {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
 
-@media (max-width: 750px) {
-  .topbar {
-    font-size: 8px;
-    letter-spacing: 1px;
-  }
+.socials a { color: var(--green); }
 
-  nav {
-    gap: 17px;
-  }
-
-  nav a {
-    font-size: 9px;
-  }
-
-  .cover-grid {
+@media(max-width:800px) {
+  .amanda-layout {
     grid-template-columns: 1fr;
-    gap: 25px;
+    gap: 30px;
   }
 
-  .cover-image {
-    height: 340px;
-  }
+  .amanda-photo { height: 500px; }
 
-  .cover {
-    padding: 40px 0 55px;
-  }
+  .story-grid { grid-template-columns: repeat(2,1fr); }
+}
 
-  .travel-hero {
-    min-height: 300px;
-  }
+@media(max-width:550px) {
+  .story-grid, .video-grid { grid-template-columns: 1fr; }
 
-  .video-grid {
-    grid-template-columns: 1fr;
-  }
+  nav { gap: 17px; }
 
-  .travel-intro {
-    font-size: 17px;
-    text-align: left;
-  }
+  .amanda-photo { height: 430px; }
 
-  .newsletter form {
-    flex-direction: column;
-  }
+  .newsletter form { flex-direction: column; gap: 10px; }
 
-  .newsletter button {
-    width: 100%;
-  }
-
-  footer {
-    flex-direction: column;
-  }
+  .newsletter button { padding: 14px; }
 }
 </style>
 </head>
 
 <body>
 
-<!-- TOP BAR -->
-<header class="topbar">
-  <div>INDEPENDENT EDITORIAL JOURNAL</div>
+<div class="topline">
+  <span>INDEPENDENT DIGITAL JOURNAL</span>
+  <span id="clock">JST --:--:--</span>
+  <span>VOL. 001 — 2026</span>
+</div>
 
-  <div class="clock-area">
-    <div id="clock">00:00:00 JST</div>
-    <div id="date">TOKYO, JAPAN</div>
-  </div>
+<header class="header">
+  <div class="logo">MIDNIGHT NEWS</div>
+  <div class="tagline">Every hour has a story.</div>
 </header>
 
-<!-- MASTHEAD -->
-<div class="masthead" id="home">
-  <div class="logo">MIDNIGHT <span>NEWS.</span></div>
-  <p class="tagline">Every hour has a story.</p>
-</div>
-
-<!-- NAVIGATION -->
 <nav>
-  <a href="#home">Home</a>
-  <a href="#cover">Cover</a>
-  <a href="#latest">Latest</a>
-  <a href="#search">Search</a>
-  <a href="#bookmarks">Bookmarks</a>
-  <a href="#travel">Travel</a>
-  <a href="#newsletter">Newsletter</a>
+  <a href="#home">HOME</a>
+  <a href="#amanda">FEATURE</a>
+  <a href="#videos">VIDEOS</a>
+  <a href="#world">WORLD</a>
+  <a href="#culture">CULTURE</a>
+  <a href="#newsletter">NEWSLETTER</a>
 </nav>
 
-<!-- BREAKING NEWS STRIP -->
-<div class="breaking">
-  <span class="breaking-label">BREAKING</span>
-  <span>THE WORLD, ONE STORY AT A TIME.</span>
-</div>
+<main class="container" id="home">
 
-<!-- COVER -->
-<main>
+<section class="breaking">
+  <div class="section-label">THE LATEST</div>
+  <div class="breaking-bar">
+    <span class="live">● EDITOR'S NOTE</span>
+    <span>Welcome to Midnight News — every hour has a story.</span>
+  </div>
+</section>
 
-<section class="cover container" id="cover">
-  <div class="cover-grid">
+<!-- AMANDA KING FEATURE -->
+
+<section class="amanda" id="amanda">
+
+  <div class="amanda-heading">
+    <div class="eyebrow">TRAVEL & LIFESTYLE · SPECIAL FEATURE</div>
+    <h1>MY FAVOURITE TRAVEL<br>
+    INFLUENCER — <span>AMANDA KING</span></h1>
+  </div>
+
+  <div class="amanda-layout">
 
     <div>
       <img
-        class="cover-image"
-        src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85"
-        alt="Editorial workspace"
+        class="amanda-photo"
+        src="image.png"
+        alt="Amanda King at an outdoor event"
       >
     </div>
 
-    <div class="cover-copy">
-      <div class="eyebrow">THE MIDNIGHT EDITION</div>
+    <div class="amanda-content">
 
-      <h1>A different perspective on the world.</h1>
+      <div class="category">THE PEOPLE WE ADMIRE · 001</div>
+
+      <h2>Some journeys are worth following.</h2>
 
       <p>
-        A space for stories, ideas, discoveries and everything
-        worth taking a closer look at.
+        Travel is more than visiting new places. It is about
+        discovering different perspectives, collecting memories
+        and finding inspiration in the world around us.
       </p>
 
-      <a class="cover-note" href="#latest">EXPLORE THE EDITION</a>
+      <p>
+        Amanda King is a travel influencer whose videos and
+        adventures make exploring the world feel exciting.
+        Her content celebrates the experiences, destinations
+        and moments that make travelling so memorable.
+      </p>
+
+      <div class="highlight">
+        "A little inspiration can make the whole world feel closer."
+      </div>
+
+      <p>
+        This feature is dedicated to the creator whose travel
+        adventures make us want to see a little more of the world.
+      </p>
+
+      <div class="feature-meta">
+        MIDNIGHT EDITORIAL · TRAVEL & LIFESTYLE
+      </div>
+
     </div>
-
   </div>
+
 </section>
 
-<!-- LATEST -->
-<section class="latest container" id="latest">
-  <div class="section-heading">THE LATEST</div>
+<!-- TWO VIDEOS -->
 
-  <div class="empty-news">
-    <h2>Every hour has a story.</h2>
-    <p>New stories will appear here soon.</p>
-  </div>
-</section>
+<section class="videos" id="videos">
 
-<!-- SEARCH -->
-<section class="search-section container" id="search">
-  <div class="section-heading">SEARCH THE EDITION</div>
+  <div class="section-label">THE WATCH LIST</div>
 
-  <div class="search-box">
-    <input
-      type="search"
-      id="searchInput"
-      placeholder="Search Midnight News..."
-      aria-label="Search Midnight News"
-    >
-    <button type="button" onclick="searchSite()">SEARCH</button>
-  </div>
+  <h2 class="video-heading">
+    TWO VIDEOS <span>WORTH WATCHING</span>
+  </h2>
 
-  <p id="searchMessage" style="color:var(--muted);font-size:12px;margin-top:14px;"></p>
-</section>
-
-<!-- BOOKMARKS -->
-<section class="bookmarks container" id="bookmarks">
-  <div class="section-heading">YOUR BOOKMARKS</div>
-  <div class="bookmark-list" id="bookmarkList">
-    Your saved stories will appear here.
-  </div>
-</section>
-
-<!-- AMANDA KING TRAVEL FEATURE -->
-<section class="travel container" id="travel">
-
-  <div class="travel-label">
-    TRAVEL & LIFESTYLE — CREATOR SPOTLIGHT
-  </div>
-
-  <h1 class="travel-title">
-    MY FAVOURITE TRAVEL INFLUENCER — AMANDA KING
-  </h1>
-
-  <!-- STATIC IMAGE: DOES NOT LINK TO INSTAGRAM -->
- <img
-  class="travel-hero"
-  src="https://images.squarespace-cdn.com/content/v1/67eb60db253c5c45656397d2/a6fde003-084c-44bf-bf31-79ff9d02c3a4/DSC01393.JPG"
-  alt="Amanda King"
->
-
-  <div class="travel-caption">
-    CREATOR SPOTLIGHT · AMANDA KING
-  </div>
-
-  <p class="travel-intro">
-    Some creators inspire you to travel, explore and see the world differently.
-    For me, Amanda King is one of those creators. Her travel videos, adventures
-    and experiences make exploring the world even more exciting. That's why
-    she is one of my favourite travel influencers.
+  <p class="video-intro">
+    A little more of Amanda's world, one video at a time.
   </p>
-
-  <!-- YOUTUBE VIDEOS -->
-  <h2 class="video-heading">A LITTLE MORE TO EXPLORE</h2>
 
   <div class="video-grid">
 
-    <!-- VIDEO ONE -->
-    <article class="video-card">
+    <a class="video-card"
+       href="https://www.youtube.com/watch?v=kCeeTUSm4eo"
+       target="_blank" rel="noopener">
 
-      <a
-        class="video-thumbnail"
-        href="https://www.youtube.com/watch?v=kCeeTUSm4eo"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Watch Amanda King's first selected video on YouTube"
-      >
-        <img
-          src="https://img.youtube.com/vi/kCeeTUSm4eo/hqdefault.jpg"
-          alt="First Amanda King YouTube video thumbnail"
-        >
+      <img
+        src="https://img.youtube.com/vi/kCeeTUSm4eo/maxresdefault.jpg"
+        onerror="this.src='https://img.youtube.com/vi/kCeeTUSm4eo/hqdefault.jpg'"
+        alt="First Amanda King video thumbnail">
 
-        <span class="play-button">▶</span>
-      </a>
+      <h3>Video No. 01</h3>
+      <p>WATCH ON YOUTUBE ↗</p>
+    </a>
 
-      <p class="video-subtitle">SELECTED VIDEO · 01</p>
+    <a class="video-card"
+       href="https://www.youtube.com/watch?v=_-b3kdiSETI"
+       target="_blank" rel="noopener">
 
-      <h3 class="video-title">
-        Behind The Scenes as EMIRATES CABIN CREW - Things you DONT see as a Passenger - Shanghai Vlog
-      </h3>
+      <img
+        src="https://img.youtube.com/vi/_-b3kdiSETI/maxresdefault.jpg"
+        onerror="this.src='https://img.youtube.com/vi/_-b3kdiSETI/hqdefault.jpg'"
+        alt="Second Amanda King video thumbnail">
 
-    </article>
-
-    <!-- VIDEO TWO -->
-    <article class="video-card">
-
-      <a
-        class="video-thumbnail"
-        href="https://www.youtube.com/watch?v=_-b3kdiSETI"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Watch Amanda King's second selected video on YouTube"
-      >
-        <img
-          src="https://img.youtube.com/vi/_-b3kdiSETI/hqdefault.jpg"
-          alt="Second Amanda King YouTube video thumbnail"
-        >
-
-        <span class="play-button">▶</span>
-      </a>
-
-      <p class="video-subtitle">SELECTED VIDEO · 02</p>
-
-      <h3 class="video-title" id="secondVideoTitle">
-        Selected video
-      </h3>
-
-    </article>
+      <h3>Video No. 02</h3>
+      <p>WATCH ON YOUTUBE ↗</p>
+    </a>
 
   </div>
+</section>
 
-  <!-- SOCIAL LINKS AT THE VERY END -->
-  <div class="follow">
+<!-- JOURNAL -->
 
-    <h3>FOLLOW AMANDA KING</h3>
+<section class="stories" id="world">
 
-    <div class="social-links">
+  <div class="toolbar">
+    <div>
+      <div class="section-label" style="margin:0">THE JOURNAL</div>
+    </div>
 
-      <a
-        href="https://www.instagram.com/its.amandaking/"
-        target="_blank"
-        rel="noopener noreferrer"
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <input
+        class="search"
+        id="search"
+        placeholder="Search stories..."
       >
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <rect x="3" y="3" width="18" height="18" rx="5"
-            fill="none" stroke="currentColor" stroke-width="1.8"/>
-          <circle cx="12" cy="12" r="4"
-            fill="none" stroke="currentColor" stroke-width="1.8"/>
-          <circle cx="17.5" cy="6.5" r="1.1"/>
-        </svg>
-        Instagram · @its.amandaking
-      </a>
 
-      <a
-        href="https://www.youtube.com/@its.amandaking"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M23 7.1a3 3 0 0 0-2.1-2.1C19 4.5 12 4.5 12 4.5s-7 0-8.9.5A3 3 0 0 0 1 7.1 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.9 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.9 31 31 0 0 0-.5-4.9ZM9.7 15.5v-7l6 3.5-6 3.5Z"/>
-        </svg>
-        YouTube · @its.amandaking
-      </a>
-
+      <button class="bookmark-toggle" id="showBookmarks">
+        ♡ BOOKMARKS
+      </button>
     </div>
   </div>
+
+  <div class="story-grid" id="storyGrid">
+
+    <article class="story" data-category="world">
+      <div class="story-image">WORLD</div>
+      <div class="category">WORLD</div>
+      <h3>A changing world and the stories behind it.</h3>
+      <p>Explore events, conversations and developments shaping our global landscape.</p>
+      <div class="story-footer">
+        <span>WORLD DESK</span>
+        <button class="save">♡</button>
+      </div>
+    </article>
+
+    <article class="story" id="culture" data-category="culture">
+      <div class="story-image">CULTURE</div>
+      <div class="category">CULTURE</div>
+      <h3>The art of seeing the world differently.</h3>
+      <p>Art, creativity, entertainment and the people changing cultural conversations.</p>
+      <div class="story-footer">
+        <span>CULTURE DESK</span>
+        <button class="save">♡</button>
+      </div>
+    </article>
+
+    <article class="story" data-category="lifestyle">
+      <div class="story-image">LIFESTYLE</div>
+      <div class="category">LIFESTYLE</div>
+      <h3>Finding meaning in the everyday.</h3>
+      <p>Ideas, inspiration, travel and the little things that make life interesting.</p>
+      <div class="story-footer">
+        <span>LIFESTYLE DESK</span>
+        <button class="save">♡</button>
+      </div>
+    </article>
+
+    <article class="story" data-category="technology">
+      <div class="story-image">TECHNOLOGY</div>
+      <div class="category">TECHNOLOGY</div>
+      <h3>Tomorrow is already taking shape.</h3>
+      <p>Discover innovations and digital ideas transforming the future.</p>
+      <div class="story-footer">
+        <span>TECH DESK</span>
+        <button class="save">♡</button>
+      </div>
+    </article>
+
+    <article class="story" data-category="world">
+      <div class="story-image">PERSPECTIVE</div>
+      <div class="category">PERSPECTIVE</div>
+      <h3>Beyond the headlines.</h3>
+      <p>Thoughtful commentary and context behind the conversations that matter.</p>
+      <div class="story-footer">
+        <span>OPINION DESK</span>
+        <button class="save">♡</button>
+      </div>
+    </article>
+
+    <article class="story" data-category="culture">
+      <div class="story-image">THE EDIT</div>
+      <div class="category">THE EDIT</div>
+      <h3>Stories worth slowing down for.</h3>
+      <p>A carefully selected collection of discoveries and interesting reads.</p>
+      <div class="story-footer">
+        <span>THE EDITORS</span>
+        <button class="save">♡</button>
+      </div>
+    </article>
+
+  </div>
+
+  <p class="empty" id="empty">No stories found.</p>
 
 </section>
 
 <!-- NEWSLETTER -->
-<section class="newsletter container" id="newsletter">
 
-  <h2>The Midnight Letter.</h2>
+<section class="newsletter" id="newsletter">
 
-  <p>A little something worth reading, delivered to your inbox.</p>
+  <div class="section-label">THE MIDNIGHT LETTER</div>
+
+  <h2>A little news, <span>a little perspective.</span></h2>
+
+  <p>Get the stories worth knowing, delivered to your inbox.</p>
 
   <form id="newsletterForm">
-    <input
-      type="email"
-      id="emailInput"
-      placeholder="Your email address"
-      required
-    >
-
-    <button type="submit">SUBSCRIBE</button>
+    <input type="email" placeholder="Your email address" required>
+    <button type="submit">SUBSCRIBE →</button>
   </form>
 
-  <p id="newsletterMessage" style="margin-top:15px;"></p>
+  <p id="newsletterMessage"></p>
 
 </section>
 
 </main>
 
-<!-- FOOTER -->
 <footer>
-  <div>© 2026 MIDNIGHT NEWS.</div>
-  <div>EVERY HOUR HAS A <span>STORY.</span></div>
+
+  <strong>MIDNIGHT NEWS</strong>
+
+  EVERY HOUR HAS A STORY.
+
+  <div class="socials">
+    <a href="https://www.instagram.com/" target="_blank">INSTAGRAM ↗</a>
+    <a href="https://www.youtube.com/" target="_blank">YOUTUBE ↗</a>
+    <a href="https://www.pinterest.com/" target="_blank">PINTEREST ↗</a>
+  </div>
+
+  © 2026 MIDNIGHT NEWS · INDEPENDENT DIGITAL JOURNAL
+
 </footer>
 
 <script>
 
-/* JAPAN STANDARD TIME CLOCK */
+// JAPAN STANDARD TIME
 
 function updateClock() {
   const now = new Date();
 
   document.getElementById("clock").textContent =
-    new Intl.DateTimeFormat("en-GB", {
+    "JST " + new Intl.DateTimeFormat("en-GB", {
       timeZone: "Asia/Tokyo",
       hour: "2-digit",
       minute: "2-digit",
       second: "2-digit",
       hour12: false
-    }).format(now) + " JST";
-
-  document.getElementById("date").textContent =
-    new Intl.DateTimeFormat("en-GB", {
-      timeZone: "Asia/Tokyo",
-      weekday: "long",
-      day: "numeric",
-      month: "long",
-      year: "numeric"
-    }).format(now).toUpperCase();
+    }).format(now);
 }
 
 updateClock();
 setInterval(updateClock, 1000);
 
 
-/* SEARCH */
+// SEARCH
 
-function searchSite() {
-  const query = document
-    .getElementById("searchInput")
-    .value.trim();
+const search = document.getElementById("search");
+const stories = [...document.querySelectorAll(".story")];
+const empty = document.getElementById("empty");
 
-  const message = document.getElementById("searchMessage");
+let bookmarksOnly = false;
 
-  if (!query) {
-    message.textContent = "Enter something to search.";
-    return;
-  }
+function filterStories() {
 
-  const travelMatch =
-    "travel lifestyle creator spotlight amanda king"
-    .includes(query.toLowerCase()) ||
-    query.toLowerCase().split(" ").some(word =>
-      ["travel", "amanda", "king", "creator", "lifestyle"].includes(word)
-    );
+  let visible = 0;
+  const term = search.value.toLowerCase();
 
-  if (travelMatch) {
-    message.textContent = "A matching feature was found.";
-    document.getElementById("travel").scrollIntoView({
-      behavior: "smooth"
-    });
-  } else {
-    message.textContent = "No matching stories yet.";
-  }
+  stories.forEach(story => {
+
+    const matchesText =
+      story.innerText.toLowerCase().includes(term);
+
+    const matchesBookmark =
+      !bookmarksOnly ||
+      story.querySelector(".save").classList.contains("saved");
+
+    const show = matchesText && matchesBookmark;
+
+    story.style.display = show ? "" : "none";
+
+    if (show) visible++;
+  });
+
+  empty.style.display = visible ? "none" : "block";
 }
 
-document.getElementById("searchInput").addEventListener("keydown", function(event) {
-  if (event.key === "Enter") {
-    searchSite();
-  }
+search.addEventListener("input", filterStories);
+
+
+// BOOKMARKS
+
+document.querySelectorAll(".save").forEach(button => {
+
+  button.addEventListener("click", () => {
+
+    button.classList.toggle("saved");
+
+    button.textContent =
+      button.classList.contains("saved") ? "♥" : "♡";
+
+    filterStories();
+
+  });
+
+});
+
+document.getElementById("showBookmarks")
+.addEventListener("click", () => {
+
+  bookmarksOnly = !bookmarksOnly;
+
+  document.getElementById("showBookmarks").textContent =
+    bookmarksOnly ? "← ALL STORIES" : "♡ BOOKMARKS";
+
+  filterStories();
+
 });
 
 
-/* BOOKMARK STORAGE */
+// NEWSLETTER DEMO
 
-function displayBookmarks() {
-  const saved = JSON.parse(localStorage.getItem("midnightBookmarks") || "[]");
+document.getElementById("newsletterForm")
+.addEventListener("submit", event => {
 
-  const list = document.getElementById("bookmarkList");
-
-  if (saved.length === 0) {
-    list.textContent = "Your saved stories will appear here.";
-    return;
-  }
-
-  list.innerHTML = saved.map(item =>
-    `<p>${escapeHTML(item)}</p>`
-  ).join("");
-}
-
-function escapeHTML(value) {
-  return String(value).replace(/[&<>"']/g, function(char) {
-    return {
-      "&": "&amp;",
-      "<": "&lt;",
-      ">": "&gt;",
-      '"': "&quot;",
-      "'": "&#39;"
-    }[char];
-  });
-}
-
-displayBookmarks();
-
-
-/* NEWSLETTER DEMO */
-
-document.getElementById("newsletterForm").addEventListener("submit", function(event) {
   event.preventDefault();
 
   document.getElementById("newsletterMessage").textContent =
-    "Thank you for your interest in The Midnight Letter.";
+    "Thank you for your interest in The Midnight Letter!";
 
-  this.reset();
+  event.target.reset();
+
 });
-
-
-/* SECOND VIDEO TITLE */
-
-fetch("https://www.youtube.com/oembed?url=" +
-  encodeURIComponent("https://www.youtube.com/watch?v=_-b3kdiSETI") +
-  "&format=json")
-  .then(response => {
-    if (!response.ok) throw new Error("Title unavailable");
-    return response.json();
-  })
-  .then(data => {
-    document.getElementById("secondVideoTitle").textContent = data.title;
-  })
-  .catch(() => {
-    document.getElementById("secondVideoTitle").textContent = "Selected video";
-  });
 
 </script>
 
