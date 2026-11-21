@@ -249,7 +249,7 @@ nav a:hover {color:var(--green)}
   letter-spacing:1px;
 }
 
-/* Amanda's full photo is preserved inside a cinematic landscape frame */
+/* Amanda's full photo is preserved inside a landscape frame */
 .amanda-feature {
   background:var(--panel);
   border:1px solid var(--line);
@@ -262,22 +262,12 @@ nav a:hover {color:var(--green)}
   aspect-ratio:21 / 9;
   min-height:190px;
   overflow:hidden;
-  background:#171b17;
+  background:#242424;
   isolation:isolate;
 }
 
 .amanda-photo-backdrop {
-    display: none;
-}
-
-.amanda-photo-frame {
-    background: #242424;
-    overflow: hidden;
-}
-
-.amanda-photo-frame img {
-    object-fit: contain;
-    object-position: center;
+  display:none;
 }
 
 .amanda-photo {
@@ -357,58 +347,22 @@ nav a:hover {color:var(--green)}
   font-size:12px;
 }
 
-.story-grid {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:17px;
-}
-
-.story-card {
+/* Empty newsroom section — no fictional placeholder stories */
+.coming-soon {
+  padding:55px 20px;
+  text-align:center;
   background:var(--panel);
   border:1px solid var(--line);
-  padding:22px;
-  min-height:205px;
-  display:flex;
-  flex-direction:column;
 }
 
-.story-card .category {
-  color:var(--green);
-  font:10px 'DM Mono',monospace;
-  letter-spacing:1.5px;
-  text-transform:uppercase;
+.coming-soon h3 {
+  font:clamp(25px,4vw,34px) 'Playfair Display',serif;
+  margin-bottom:10px;
 }
 
-.story-card h3 {
-  font:23px/1.25 'Playfair Display',serif;
-  margin:15px 0;
-}
-
-.story-card p {
+.coming-soon p {
   color:var(--muted);
   font-size:13px;
-  margin-bottom:18px;
-}
-
-.story-bottom {
-  margin-top:auto;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-}
-
-.bookmark {
-  background:transparent;
-  color:var(--green);
-  border:1px solid var(--line);
-  padding:7px 10px;
-  font:10px 'DM Mono',monospace;
-}
-
-.bookmark.saved {
-  background:var(--green);
-  color:#101710;
 }
 
 .newsletter {
@@ -480,17 +434,10 @@ footer {
   text-transform:uppercase;
 }
 
-.empty-message {
-  color:var(--muted);
-  font-size:13px;
-  padding:20px 0;
-  display:none;
-}
-
 @media(max-width:760px) {
   .hero-grid {grid-template-columns:1fr}
   .hero-main {min-height:330px;padding:25px}
-  .video-grid,.story-grid {grid-template-columns:1fr}
+  .video-grid {grid-template-columns:1fr}
   .newsletter {grid-template-columns:1fr;padding:25px}
   .header-note {display:none}
   nav {gap:16px}
@@ -676,73 +623,15 @@ footer {
     <p>THE NEWSROOM</p>
   </div>
 
-  <div class="story-grid" id="storyGrid">
-
-    <article class="story-card" data-search="world global culture cities">
-      <div class="category">World</div>
-      <h3>A world that never stops changing.</h3>
-      <p>A space for stories, discoveries and perspectives from across the globe.</p>
-      <div class="story-bottom">
-        <span class="meta">WORLD DESK</span>
-        <button class="bookmark" type="button" onclick="toggleBookmark(this)">☆ Save</button>
-      </div>
-    </article>
-
-    <article class="story-card" id="culture" data-search="culture art music film books">
-      <div class="category">Culture</div>
-      <h3>Culture is always in conversation.</h3>
-      <p>Art, music, film, books and the creative voices shaping our time.</p>
-      <div class="story-bottom">
-        <span class="meta">CULTURE DESK</span>
-        <button class="bookmark" type="button" onclick="toggleBookmark(this)">☆ Save</button>
-      </div>
-    </article>
-
-    <article class="story-card" id="lifestyle" data-search="lifestyle travel design living">
-      <div class="category">Lifestyle</div>
-      <h3>The details that make a life.</h3>
-      <p>Travel, design, everyday inspiration and thoughtful ways to experience the world.</p>
-      <div class="story-bottom">
-        <span class="meta">LIFESTYLE DESK</span>
-        <button class="bookmark" type="button" onclick="toggleBookmark(this)">☆ Save</button>
-      </div>
-    </article>
-
-    <article class="story-card" id="technology" data-search="technology innovation science digital">
-      <div class="category">Technology</div>
-      <h3>Tomorrow is already taking shape.</h3>
-      <p>Ideas, innovation and the technology influencing how we live.</p>
-      <div class="story-bottom">
-        <span class="meta">TECH DESK</span>
-        <button class="bookmark" type="button" onclick="toggleBookmark(this)">☆ Save</button>
-      </div>
-    </article>
-
-    <article class="story-card" data-search="people interviews creators profiles">
-      <div class="category">People</div>
-      <h3>Meet the minds behind the moment.</h3>
-      <p>Profiles and conversations with people making an impression.</p>
-      <div class="story-bottom">
-        <span class="meta">PEOPLE DESK</span>
-        <button class="bookmark" type="button" onclick="toggleBookmark(this)">☆ Save</button>
-      </div>
-    </article>
-
-    <article class="story-card" data-search="ideas opinions perspectives">
-      <div class="category">Ideas</div>
-      <h3>Different perspectives matter.</h3>
-      <p>Fresh thoughts and considered viewpoints on the things around us.</p>
-      <div class="story-bottom">
-        <span class="meta">IDEAS DESK</span>
-        <button class="bookmark" type="button" onclick="toggleBookmark(this)">☆ Save</button>
-      </div>
-    </article>
-
+  <div class="coming-soon">
+    <h3>New stories coming soon.</h3>
+    <p>Our newsroom is preparing its first edition.</p>
   </div>
 
-  <div class="empty-message" id="emptyMessage">
-    No matching stories found. Try another search.
-  </div>
+  <!-- Navigation anchors retained without placeholder articles -->
+  <span id="culture"></span>
+  <span id="lifestyle"></span>
+  <span id="technology"></span>
 </section>
 
 <section class="section container">
@@ -797,39 +686,17 @@ updateClock();
 setInterval(updateClock, 1000);
 
 
-/* Search stories */
+/* Search newsroom */
 function searchStories() {
   const query = document.getElementById('searchInput')
     .value.toLowerCase().trim();
 
-  const cards = document.querySelectorAll('.story-card');
-  let visible = 0;
+  if (!query) {
+    document.getElementById('world').scrollIntoView({behavior:'smooth'});
+    return;
+  }
 
-  cards.forEach(card => {
-    const text = (
-      card.innerText + ' ' + (card.dataset.search || '')
-    ).toLowerCase();
-
-    const match = text.includes(query);
-    card.style.display = match ? 'flex' : 'none';
-
-    if (match) visible++;
-  });
-
-  document.getElementById('emptyMessage').style.display =
-    visible === 0 ? 'block' : 'none';
-}
-
-document.getElementById('searchInput')
-  .addEventListener('keydown', function(event) {
-    if (event.key === 'Enter') searchStories();
-  });
-
-
-/* Bookmark buttons */
-function toggleBookmark(button) {
-  const saved = button.classList.toggle('saved');
-  button.textContent = saved ? '★ Saved' : '☆ Save';
+  document.getElementById('world').scrollIntoView({behavior:'smooth'});
 }
 
 
