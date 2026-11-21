@@ -1,9 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="MIDNIGHT NEWS — Every hour has a story.">
+
 <title>MIDNIGHT NEWS — Every hour has a story.</title>
 
 <style>
@@ -20,8 +22,15 @@
   --line:#303730;
 }
 
-* {box-sizing:border-box;margin:0;padding:0}
-html {scroll-behavior:smooth}
+* {
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html {
+  scroll-behavior:smooth;
+}
 
 body {
   background:var(--bg);
@@ -30,11 +39,29 @@ body {
   line-height:1.6;
 }
 
-a {color:inherit;text-decoration:none}
-button,input {font:inherit}
-button {cursor:pointer}
-.container {width:min(1180px,92%);margin:auto}
-.green {color:var(--green)}
+a {
+  color:inherit;
+  text-decoration:none;
+}
+
+button,input {
+  font:inherit;
+}
+
+button {
+  cursor:pointer;
+}
+
+.container {
+  width:min(1180px,92%);
+  margin:auto;
+}
+
+.green {
+  color:var(--green);
+}
+
+/* TOP LINE */
 
 .topline {
   border-bottom:1px solid var(--line);
@@ -51,6 +78,8 @@ button {cursor:pointer}
   gap:15px;
   flex-wrap:wrap;
 }
+
+/* HEADER */
 
 header {
   padding:27px 0 22px;
@@ -69,7 +98,9 @@ header {
   letter-spacing:2px;
 }
 
-.logo span {color:var(--green)}
+.logo span {
+  color:var(--green);
+}
 
 .tagline {
   color:var(--muted);
@@ -101,7 +132,11 @@ nav a {
   transition:color .2s;
 }
 
-nav a:hover {color:var(--green)}
+nav a:hover {
+  color:var(--green);
+}
+
+/* SECTION LABELS */
 
 .section-label {
   display:flex;
@@ -121,7 +156,11 @@ nav a:hover {color:var(--green)}
   flex:1;
 }
 
-.hero {padding:58px 0 48px}
+/* HERO */
+
+.hero {
+  padding:58px 0 48px;
+}
 
 .hero-grid {
   display:grid;
@@ -149,7 +188,9 @@ nav a:hover {color:var(--green)}
   pointer-events:none;
 }
 
-.hero-main > * {position:relative}
+.hero-main > * {
+  position:relative;
+}
 
 .eyebrow {
   color:var(--green);
@@ -198,6 +239,8 @@ nav a:hover {color:var(--green)}
   font-size:13px;
 }
 
+/* SEARCH */
+
 .search-area {
   display:flex;
   gap:10px;
@@ -214,7 +257,9 @@ nav a:hover {color:var(--green)}
   outline:none;
 }
 
-.search-area input:focus {border-color:var(--green)}
+.search-area input:focus {
+  border-color:var(--green);
+}
 
 .search-area button {
   background:var(--green);
@@ -225,6 +270,8 @@ nav a:hover {color:var(--green)}
   letter-spacing:1px;
   text-transform:uppercase;
 }
+
+/* GENERAL SECTIONS */
 
 .section {
   padding:45px 0;
@@ -249,7 +296,8 @@ nav a:hover {color:var(--green)}
   letter-spacing:1px;
 }
 
-/* Amanda's full photo is preserved inside a landscape frame */
+/* AMANDA FEATURE */
+
 .amanda-feature {
   background:var(--panel);
   border:1px solid var(--line);
@@ -275,10 +323,12 @@ nav a:hover {color:var(--green)}
   width:100%;
   height:100%;
   object-fit:contain;
-  object-position:center center;
+  object-position:center;
 }
 
-.amanda-content {padding:32px}
+.amanda-content {
+  padding:32px;
+}
 
 .amanda-content h2 {
   font:clamp(29px,4vw,43px)/1.15 'Playfair Display',serif;
@@ -308,9 +358,11 @@ nav a:hover {color:var(--green)}
   text-transform:uppercase;
 }
 
+/* VIDEOS */
+
 .video-grid {
   display:grid;
-  grid-template-columns:repeat(2,1fr);
+  grid-template-columns:repeat(2,minmax(0,1fr));
   gap:22px;
 }
 
@@ -318,16 +370,19 @@ nav a:hover {color:var(--green)}
   background:var(--panel);
   border:1px solid var(--line);
   overflow:hidden;
+  min-width:0;
 }
 
 .video-frame {
   position:relative;
   width:100%;
-  aspect-ratio:16/9;
+  aspect-ratio:16 / 9;
   background:#080a08;
+  overflow:hidden;
 }
 
 .video-frame iframe {
+  display:block;
   width:100%;
   height:100%;
   border:0;
@@ -335,7 +390,9 @@ nav a:hover {color:var(--green)}
   inset:0;
 }
 
-.video-info {padding:20px}
+.video-info {
+  padding:20px;
+}
 
 .video-info h3 {
   font:21px/1.3 'Playfair Display',serif;
@@ -345,25 +402,37 @@ nav a:hover {color:var(--green)}
 .video-info p {
   color:var(--muted);
   font-size:12px;
+  margin-top:12px;
 }
 
-/* Empty newsroom section — no fictional placeholder stories */
-.coming-soon {
-  padding:55px 20px;
-  text-align:center;
+.video-info p a {
+  color:var(--green);
+}
+
+.video-info p a:hover {
+  text-decoration:underline;
+}
+
+/* EMPTY NEWSROOM */
+
+.empty-newsroom {
   background:var(--panel);
   border:1px solid var(--line);
+  padding:35px;
+  text-align:center;
 }
 
-.coming-soon h3 {
-  font:clamp(25px,4vw,34px) 'Playfair Display',serif;
-  margin-bottom:10px;
+.empty-newsroom h3 {
+  font:25px 'Playfair Display',serif;
+  margin-bottom:9px;
 }
 
-.coming-soon p {
+.empty-newsroom p {
   color:var(--muted);
   font-size:13px;
 }
+
+/* NEWSLETTER */
 
 .newsletter {
   background:var(--panel);
@@ -400,6 +469,10 @@ nav a:hover {color:var(--green)}
   outline:none;
 }
 
+.newsletter-form input:focus {
+  border-color:var(--green);
+}
+
 .newsletter-form button {
   border:0;
   background:var(--green);
@@ -407,6 +480,8 @@ nav a:hover {color:var(--green)}
   padding:12px 17px;
   font:11px 'DM Mono',monospace;
 }
+
+/* FOOTER */
 
 footer {
   border-top:1px solid var(--line);
@@ -434,28 +509,75 @@ footer {
   text-transform:uppercase;
 }
 
+/* RESPONSIVE */
+
 @media(max-width:760px) {
-  .hero-grid {grid-template-columns:1fr}
-  .hero-main {min-height:330px;padding:25px}
-  .video-grid {grid-template-columns:1fr}
-  .newsletter {grid-template-columns:1fr;padding:25px}
-  .header-note {display:none}
-  nav {gap:16px}
-  .amanda-photo-frame {aspect-ratio:16/9}
+  .hero-grid {
+    grid-template-columns:1fr;
+  }
+
+  .hero-main {
+    min-height:330px;
+    padding:25px;
+  }
+
+  .video-grid {
+    grid-template-columns:1fr;
+  }
+
+  .newsletter {
+    grid-template-columns:1fr;
+    padding:25px;
+  }
+
+  .header-note {
+    display:none;
+  }
+
+  nav {
+    gap:16px;
+  }
+
+  .amanda-photo-frame {
+    aspect-ratio:16 / 9;
+  }
 }
 
 @media(max-width:480px) {
-  .topline-inner {font-size:9px}
-  .search-area {flex-direction:column}
-  .search-area button {width:100%}
-  .amanda-content {padding:22px}
-  .newsletter-form {flex-direction:column}
-  .newsletter-form button {padding:14px}
+  .topline-inner {
+    font-size:9px;
+  }
+
+  .search-area {
+    flex-direction:column;
+  }
+
+  .search-area button {
+    width:100%;
+  }
+
+  .amanda-content {
+    padding:22px;
+  }
+
+  .newsletter-form {
+    flex-direction:column;
+  }
+
+  .newsletter-form button {
+    padding:14px;
+  }
+
+  .empty-newsroom {
+    padding:25px 18px;
+  }
 }
 </style>
 </head>
 
 <body>
+
+<!-- TOP LINE -->
 
 <div class="topline">
   <div class="container topline-inner">
@@ -464,13 +586,17 @@ footer {
   </div>
 </div>
 
+<!-- HEADER -->
+
 <header>
   <div class="container">
+
     <div class="header-main">
       <div>
         <a href="#" class="logo">MIDNIGHT<span>.</span>NEWS</a>
         <div class="tagline">Every hour has a story.</div>
       </div>
+
       <div class="header-note">
         THE WORLD, THROUGH<br>AN EDITORIAL LENS
       </div>
@@ -484,18 +610,27 @@ footer {
       <a href="#technology">Technology</a>
       <a href="#videos">Watch</a>
     </nav>
+
   </div>
 </header>
 
 <main>
 
+<!-- HERO -->
+
 <section class="hero container">
+
   <div class="section-label">The daily edition</div>
 
   <div class="hero-grid">
+
     <div class="hero-main">
       <div class="eyebrow">The world, without the noise</div>
-      <h1>Stories worth your <span class="green">time.</span></h1>
+
+      <h1>
+        Stories worth your <span class="green">time.</span>
+      </h1>
+
       <p>
         A considered look at the people, places, ideas and moments
         shaping the world around us.
@@ -503,9 +638,12 @@ footer {
     </div>
 
     <div class="hero-side">
+
       <div class="side-card">
         <div class="number">01 / THE EDITION</div>
+
         <h3>Every hour has a story.</h3>
+
         <p>
           Thoughtful stories. Fresh perspectives. A little more meaning
           in every moment.
@@ -514,34 +652,57 @@ footer {
 
       <div class="side-card">
         <div class="number">02 / FIND YOUR STORY</div>
+
         <h3>Explore the archive.</h3>
+
         <div class="search-area">
-          <input id="searchInput" type="search" placeholder="Search stories..." aria-label="Search stories">
-          <button type="button" onclick="searchStories()">Search</button>
+          <input
+            id="searchInput"
+            type="search"
+            placeholder="Search stories..."
+            aria-label="Search stories">
+
+          <button type="button" onclick="searchStories()">
+            Search
+          </button>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
+<!-- AMANDA KING FEATURE -->
+
 <section class="section container" id="latest">
+
   <div class="section-heading">
     <div>
       <div class="section-label">01 — Featured story</div>
       <h2>The people behind the places.</h2>
     </div>
+
     <p>THE EDITOR'S PICK</p>
   </div>
 
   <article class="amanda-feature">
+
     <div class="amanda-photo-frame">
-      <img class="amanda-photo-backdrop" src="./amanda-king.png" alt="" aria-hidden="true">
-      <img class="amanda-photo" src="./amanda-king.png" alt="Amanda King at an outdoor event">
+      <img
+        class="amanda-photo"
+        src="./amanda-king.png"
+        alt="Amanda King at an outdoor event">
     </div>
 
     <div class="amanda-content">
-      <div class="eyebrow">Travel · People · Inspiration</div>
-      <h2>MY FAVOURITE TRAVEL INFLUENCER — AMANDA KING</h2>
+
+      <div class="eyebrow">
+        Travel · People · Inspiration
+      </div>
+
+      <h2>
+        MY FAVOURITE TRAVEL INFLUENCER — AMANDA KING
+      </h2>
 
       <p>
         Travel is more than visiting beautiful places. It is about
@@ -560,117 +721,216 @@ footer {
         “The world is full of places waiting to become your favourite.”
       </div>
 
-      <div class="meta">A MIDNIGHT NEWS EDITORIAL FEATURE</div>
+      <div class="meta">
+        A MIDNIGHT NEWS EDITORIAL FEATURE
+      </div>
+
     </div>
   </article>
 </section>
 
+<!-- VIDEO SECTION -->
+
 <section class="section container" id="videos">
+
   <div class="section-heading">
     <div>
       <div class="section-label">02 — Watchlist</div>
       <h2>Two videos worth watching.</h2>
     </div>
+
     <p>THE VIDEO EDIT</p>
   </div>
 
   <div class="video-grid">
 
+    <!-- VIDEO ONE -->
+
     <article class="video-card">
+
       <div class="video-frame">
         <iframe
-          src="https://www.youtube.com/embed/kCeeTUSm4eo"
-          title="Behind The Scenes as EMIRATES CABIN CREW - Things you DONT see as a Passenger ✨ Shanghai Vlog ✨"
-          loading="lazy"
+          src="https://www.youtube-nocookie.com/embed/kCeeTUSm4eo"
+          title="Behind The Scenes as EMIRATES CABIN CREW - Shanghai Vlog"
+          loading="eager"
+          referrerpolicy="strict-origin-when-cross-origin"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen>
         </iframe>
       </div>
+
       <div class="video-info">
-        <div class="eyebrow">Travel · Behind the scenes</div>
-        <h3>Behind The Scenes as EMIRATES CABIN CREW - Things you DONT see as a Passenger ✨ Shanghai Vlog ✨</h3>
-        <p>Featured video</p>
+
+        <div class="eyebrow">
+          Travel · Behind the scenes
+        </div>
+
+        <h3>
+          Behind The Scenes as EMIRATES CABIN CREW - Things you DONT see as a Passenger ✨ Shanghai Vlog ✨
+        </h3>
+
+        <p>
+          <a
+            href="https://www.youtube.com/watch?v=kCeeTUSm4eo"
+            target="_blank"
+            rel="noopener">
+            Watch on YouTube ↗
+          </a>
+        </p>
+
       </div>
     </article>
 
+    <!-- VIDEO TWO -->
+
     <article class="video-card">
+
       <div class="video-frame">
         <iframe
-          id="secondVideo"
-          src="https://www.youtube.com/embed/_-b3kdiSETI?enablejsapi=1"
+          src="https://www.youtube-nocookie.com/embed/_-b3kdiSETI"
           title="Featured travel video"
-          loading="lazy"
+          loading="eager"
+          referrerpolicy="strict-origin-when-cross-origin"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen>
         </iframe>
       </div>
+
       <div class="video-info">
-        <div class="eyebrow">Travel · Watchlist</div>
-        <h3 id="secondVideoTitle">Featured travel video</h3>
-        <p>Featured video</p>
+
+        <div class="eyebrow">
+          Travel · Watchlist
+        </div>
+
+        <h3>Featured travel video</h3>
+
+        <p>
+          <a
+            href="https://www.youtube.com/watch?v=_-b3kdiSETI"
+            target="_blank"
+            rel="noopener">
+            Watch on YouTube ↗
+          </a>
+        </p>
+
       </div>
     </article>
 
   </div>
 </section>
 
+<!-- NEWSROOM -->
+
 <section class="section container" id="world">
+
+  <div id="culture"></div>
+  <div id="lifestyle"></div>
+  <div id="technology"></div>
+
   <div class="section-heading">
     <div>
       <div class="section-label">03 — Around the world</div>
       <h2>Stories &amp; perspectives.</h2>
     </div>
+
     <p>THE NEWSROOM</p>
   </div>
 
-  <div class="coming-soon">
-    <h3>New stories coming soon.</h3>
-    <p>Our newsroom is preparing its first edition.</p>
+  <div class="empty-newsroom">
+    <div class="eyebrow">THE NEWSROOM</div>
+
+    <h3>New stories are on their way.</h3>
+
+    <p>
+      Our next edition is being prepared. Check back soon for
+      stories worth your time.
+    </p>
   </div>
 
-  <!-- Navigation anchors retained without placeholder articles -->
-  <span id="culture"></span>
-  <span id="lifestyle"></span>
-  <span id="technology"></span>
+  <p
+    id="emptyMessage"
+    class="meta"
+    style="margin-top:15px;display:none;"
+    aria-live="polite">
+    No published stories yet.
+  </p>
+
 </section>
 
+<!-- NEWSLETTER -->
+
 <section class="section container">
+
   <div class="newsletter">
+
     <div>
       <div class="eyebrow">The midnight letter</div>
+
       <h2>A little news, thoughtfully delivered.</h2>
+
       <p>
         A quiet corner of your inbox for stories worth reading.
       </p>
     </div>
 
     <form class="newsletter-form" onsubmit="subscribe(event)">
-      <input type="email" id="emailInput" placeholder="Your email address" aria-label="Your email address" required>
-      <button type="submit">SUBSCRIBE</button>
+
+      <input
+        type="email"
+        id="emailInput"
+        placeholder="Your email address"
+        aria-label="Your email address"
+        required>
+
+      <button type="submit">
+        SUBSCRIBE
+      </button>
+
     </form>
+
   </div>
 
-  <p id="newsletterMessage" class="meta" style="margin-top:12px" aria-live="polite"></p>
+  <p
+    id="newsletterMessage"
+    class="meta"
+    style="margin-top:12px"
+    aria-live="polite">
+  </p>
+
 </section>
 
 </main>
 
+<!-- FOOTER -->
+
 <footer>
+
   <div class="container footer-inner">
+
     <div>
-      <div class="footer-logo">MIDNIGHT<span class="green">.</span>NEWS</div>
-      <div class="tagline">Every hour has a story.</div>
+      <div class="footer-logo">
+        MIDNIGHT<span class="green">.</span>NEWS
+      </div>
+
+      <div class="tagline">
+        Every hour has a story.
+      </div>
     </div>
 
     <div class="footer-note">
       © 2026 MIDNIGHT NEWS · THE DAILY EDITION
     </div>
+
   </div>
+
 </footer>
 
 <script>
-/* Tokyo / Japan Standard Time clock */
+
+/* TOKYO CLOCK */
+
 function updateClock() {
+
   const time = new Intl.DateTimeFormat('en-GB', {
     timeZone:'Asia/Tokyo',
     hour:'2-digit',
@@ -686,22 +946,45 @@ updateClock();
 setInterval(updateClock, 1000);
 
 
-/* Search newsroom */
-function searchStories() {
-  const query = document.getElementById('searchInput')
-    .value.toLowerCase().trim();
+/* SEARCH */
 
-  if (!query) {
-    document.getElementById('world').scrollIntoView({behavior:'smooth'});
-    return;
+function searchStories() {
+
+  const query = document
+    .getElementById('searchInput')
+    .value
+    .trim();
+
+  const message = document.getElementById('emptyMessage');
+
+  if (query.length > 0) {
+    message.style.display = 'block';
+    message.textContent =
+      'No published stories yet. Check back for the next edition.';
+  } else {
+    message.style.display = 'none';
   }
 
-  document.getElementById('world').scrollIntoView({behavior:'smooth'});
+  document.getElementById('world').scrollIntoView({
+    behavior:'smooth'
+  });
 }
 
+document
+  .getElementById('searchInput')
+  .addEventListener('keydown', function(event) {
 
-/* Newsletter demo */
+    if (event.key === 'Enter') {
+      searchStories();
+    }
+
+  });
+
+
+/* NEWSLETTER DEMO */
+
 function subscribe(event) {
+
   event.preventDefault();
 
   document.getElementById('newsletterMessage').textContent =
@@ -710,30 +993,6 @@ function subscribe(event) {
   document.getElementById('emailInput').value = '';
 }
 
-
-/* Load the original title of the second YouTube video */
-let secondVideoPlayer;
-
-function onYouTubeIframeAPIReady() {
-  secondVideoPlayer = new YT.Player('secondVideo', {
-    events: {
-      onReady: function(event) {
-        const videoData = event.target.getVideoData();
-
-        if (videoData && videoData.title) {
-          document.getElementById('secondVideoTitle').textContent =
-            videoData.title;
-        }
-      }
-    }
-  });
-}
-
-(function loadYouTubeAPI() {
-  const tag = document.createElement('script');
-  tag.src = 'https://www.youtube.com/iframe_api';
-  document.head.appendChild(tag);
-})();
 </script>
 
 </body>
