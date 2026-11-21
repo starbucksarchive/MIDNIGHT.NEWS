@@ -5,7 +5,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="MIDNIGHT NEWS — Every hour has a story.">
-
 <title>MIDNIGHT NEWS — Every hour has a story.</title>
 
 <style>
@@ -28,9 +27,7 @@
   padding:0;
 }
 
-html {
-  scroll-behavior:smooth;
-}
+html {scroll-behavior:smooth}
 
 body {
   background:var(--bg);
@@ -39,27 +36,11 @@ body {
   line-height:1.6;
 }
 
-a {
-  color:inherit;
-  text-decoration:none;
-}
-
-button,input {
-  font:inherit;
-}
-
-button {
-  cursor:pointer;
-}
-
-.container {
-  width:min(1180px,92%);
-  margin:auto;
-}
-
-.green {
-  color:var(--green);
-}
+a {color:inherit;text-decoration:none}
+button,input {font:inherit}
+button {cursor:pointer}
+.container {width:min(1180px,92%);margin:auto}
+.green {color:var(--green)}
 
 /* TOP LINE */
 
@@ -98,9 +79,7 @@ header {
   letter-spacing:2px;
 }
 
-.logo span {
-  color:var(--green);
-}
+.logo span {color:var(--green)}
 
 .tagline {
   color:var(--muted);
@@ -132,9 +111,7 @@ nav a {
   transition:color .2s;
 }
 
-nav a:hover {
-  color:var(--green);
-}
+nav a:hover {color:var(--green)}
 
 /* SECTION LABELS */
 
@@ -158,9 +135,7 @@ nav a:hover {
 
 /* HERO */
 
-.hero {
-  padding:58px 0 48px;
-}
+.hero {padding:58px 0 48px}
 
 .hero-grid {
   display:grid;
@@ -188,9 +163,7 @@ nav a:hover {
   pointer-events:none;
 }
 
-.hero-main > * {
-  position:relative;
-}
+.hero-main > * {position:relative}
 
 .eyebrow {
   color:var(--green);
@@ -257,9 +230,7 @@ nav a:hover {
   outline:none;
 }
 
-.search-area input:focus {
-  border-color:var(--green);
-}
+.search-area input:focus {border-color:var(--green)}
 
 .search-area button {
   background:var(--green);
@@ -296,7 +267,7 @@ nav a:hover {
   letter-spacing:1px;
 }
 
-/* AMANDA FEATURE */
+/* AMANDA KING FEATURE */
 
 .amanda-feature {
   background:var(--panel);
@@ -314,21 +285,32 @@ nav a:hover {
   isolation:isolate;
 }
 
+/* BLURRED SIDE BACKGROUND */
+
 .amanda-photo-backdrop {
-  display:none;
+  display:block;
+  position:absolute;
+  inset:-20px;
+  width:calc(100% + 40px);
+  height:calc(100% + 40px);
+  object-fit:cover;
+  object-position:center;
+  filter:blur(18px) brightness(.55);
+  z-index:-1;
 }
+
+/* MAIN PHOTO — FULL IMAGE, NO CROPPING */
 
 .amanda-photo {
   display:block;
+  position:relative;
   width:100%;
   height:100%;
   object-fit:contain;
   object-position:center;
 }
 
-.amanda-content {
-  padding:32px;
-}
+.amanda-content {padding:32px}
 
 .amanda-content h2 {
   font:clamp(29px,4vw,43px)/1.15 'Playfair Display',serif;
@@ -390,9 +372,7 @@ nav a:hover {
   inset:0;
 }
 
-.video-info {
-  padding:20px;
-}
+.video-info {padding:20px}
 
 .video-info h3 {
   font:21px/1.3 'Playfair Display',serif;
@@ -405,13 +385,8 @@ nav a:hover {
   margin-top:12px;
 }
 
-.video-info p a {
-  color:var(--green);
-}
-
-.video-info p a:hover {
-  text-decoration:underline;
-}
+.video-info p a {color:var(--green)}
+.video-info p a:hover {text-decoration:underline}
 
 /* EMPTY NEWSROOM */
 
@@ -469,9 +444,7 @@ nav a:hover {
   outline:none;
 }
 
-.newsletter-form input:focus {
-  border-color:var(--green);
-}
+.newsletter-form input:focus {border-color:var(--green)}
 
 .newsletter-form button {
   border:0;
@@ -509,68 +482,26 @@ footer {
   text-transform:uppercase;
 }
 
-/* RESPONSIVE */
+/* MOBILE */
 
 @media(max-width:760px) {
-  .hero-grid {
-    grid-template-columns:1fr;
-  }
-
-  .hero-main {
-    min-height:330px;
-    padding:25px;
-  }
-
-  .video-grid {
-    grid-template-columns:1fr;
-  }
-
-  .newsletter {
-    grid-template-columns:1fr;
-    padding:25px;
-  }
-
-  .header-note {
-    display:none;
-  }
-
-  nav {
-    gap:16px;
-  }
-
-  .amanda-photo-frame {
-    aspect-ratio:16 / 9;
-  }
+  .hero-grid {grid-template-columns:1fr}
+  .hero-main {min-height:330px;padding:25px}
+  .video-grid {grid-template-columns:1fr}
+  .newsletter {grid-template-columns:1fr;padding:25px}
+  .header-note {display:none}
+  nav {gap:16px}
+  .amanda-photo-frame {aspect-ratio:16 / 9}
 }
 
 @media(max-width:480px) {
-  .topline-inner {
-    font-size:9px;
-  }
-
-  .search-area {
-    flex-direction:column;
-  }
-
-  .search-area button {
-    width:100%;
-  }
-
-  .amanda-content {
-    padding:22px;
-  }
-
-  .newsletter-form {
-    flex-direction:column;
-  }
-
-  .newsletter-form button {
-    padding:14px;
-  }
-
-  .empty-newsroom {
-    padding:25px 18px;
-  }
+  .topline-inner {font-size:9px}
+  .search-area {flex-direction:column}
+  .search-area button {width:100%}
+  .amanda-content {padding:22px}
+  .newsletter-form {flex-direction:column}
+  .newsletter-form button {padding:14px}
+  .empty-newsroom {padding:25px 18px}
 }
 </style>
 </head>
@@ -641,9 +572,7 @@ footer {
 
       <div class="side-card">
         <div class="number">01 / THE EDITION</div>
-
         <h3>Every hour has a story.</h3>
-
         <p>
           Thoughtful stories. Fresh perspectives. A little more meaning
           in every moment.
@@ -652,7 +581,6 @@ footer {
 
       <div class="side-card">
         <div class="number">02 / FIND YOUR STORY</div>
-
         <h3>Explore the archive.</h3>
 
         <div class="search-area">
@@ -681,17 +609,24 @@ footer {
       <div class="section-label">01 — Featured story</div>
       <h2>The people behind the places.</h2>
     </div>
-
     <p>THE EDITOR'S PICK</p>
   </div>
 
   <article class="amanda-feature">
 
     <div class="amanda-photo-frame">
+
+      <img
+        class="amanda-photo-backdrop"
+        src="./amanda-king.png"
+        alt=""
+        aria-hidden="true">
+
       <img
         class="amanda-photo"
         src="./amanda-king.png"
         alt="Amanda King at an outdoor event">
+
     </div>
 
     <div class="amanda-content">
@@ -738,13 +673,10 @@ footer {
       <div class="section-label">02 — Watchlist</div>
       <h2>Two videos worth watching.</h2>
     </div>
-
     <p>THE VIDEO EDIT</p>
   </div>
 
   <div class="video-grid">
-
-    <!-- VIDEO ONE -->
 
     <article class="video-card">
 
@@ -760,10 +692,7 @@ footer {
       </div>
 
       <div class="video-info">
-
-        <div class="eyebrow">
-          Travel · Behind the scenes
-        </div>
+        <div class="eyebrow">Travel · Behind the scenes</div>
 
         <h3>
           Behind The Scenes as EMIRATES CABIN CREW - Things you DONT see as a Passenger ✨ Shanghai Vlog ✨
@@ -777,11 +706,9 @@ footer {
             Watch on YouTube ↗
           </a>
         </p>
-
       </div>
-    </article>
 
-    <!-- VIDEO TWO -->
+    </article>
 
     <article class="video-card">
 
@@ -797,10 +724,7 @@ footer {
       </div>
 
       <div class="video-info">
-
-        <div class="eyebrow">
-          Travel · Watchlist
-        </div>
+        <div class="eyebrow">Travel · Watchlist</div>
 
         <h3>Featured travel video</h3>
 
@@ -812,8 +736,8 @@ footer {
             Watch on YouTube ↗
           </a>
         </p>
-
       </div>
+
     </article>
 
   </div>
@@ -832,7 +756,6 @@ footer {
       <div class="section-label">03 — Around the world</div>
       <h2>Stories &amp; perspectives.</h2>
     </div>
-
     <p>THE NEWSROOM</p>
   </div>
 
@@ -882,9 +805,7 @@ footer {
         aria-label="Your email address"
         required>
 
-      <button type="submit">
-        SUBSCRIBE
-      </button>
+      <button type="submit">SUBSCRIBE</button>
 
     </form>
 
@@ -904,17 +825,13 @@ footer {
 <!-- FOOTER -->
 
 <footer>
-
   <div class="container footer-inner">
 
     <div>
       <div class="footer-logo">
         MIDNIGHT<span class="green">.</span>NEWS
       </div>
-
-      <div class="tagline">
-        Every hour has a story.
-      </div>
+      <div class="tagline">Every hour has a story.</div>
     </div>
 
     <div class="footer-note">
@@ -922,7 +839,6 @@ footer {
     </div>
 
   </div>
-
 </footer>
 
 <script>
@@ -973,11 +889,9 @@ function searchStories() {
 document
   .getElementById('searchInput')
   .addEventListener('keydown', function(event) {
-
     if (event.key === 'Enter') {
       searchStories();
     }
-
   });
 
 
