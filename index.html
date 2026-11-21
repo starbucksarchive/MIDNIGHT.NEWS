@@ -5,17 +5,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="MIDNIGHT NEWS — Every hour has a story.">
-<title>MIDNIGHT NEWS — Every hour has a story.</title>
+<title>MIDNIGHT.NEWS — Every hour has a story.</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
-
 :root {
   --bg:#101110;
   --panel:#191c19;
-  --panel2:#202520;
   --green:#78d99a;
-  --sage:#b6c5a3;
   --white:#f3f2ec;
   --muted:#92988f;
   --line:#303730;
@@ -36,10 +36,19 @@ body {
   line-height:1.6;
 }
 
-a {color:inherit;text-decoration:none}
+a {
+  color:inherit;
+  text-decoration:none;
+}
+
 button,input {font:inherit}
 button {cursor:pointer}
-.container {width:min(1180px,92%);margin:auto}
+
+.container {
+  width:min(1180px,92%);
+  margin:auto;
+}
+
 .green {color:var(--green)}
 
 /* TOP LINE */
@@ -242,7 +251,7 @@ nav a:hover {color:var(--green)}
   text-transform:uppercase;
 }
 
-/* GENERAL SECTIONS */
+/* SECTIONS */
 
 .section {
   padding:45px 0;
@@ -285,8 +294,6 @@ nav a:hover {color:var(--green)}
   isolation:isolate;
 }
 
-/* BLURRED SIDE BACKGROUND */
-
 .amanda-photo-backdrop {
   display:block;
   position:absolute;
@@ -298,8 +305,6 @@ nav a:hover {color:var(--green)}
   filter:blur(18px) brightness(.55);
   z-index:-1;
 }
-
-/* MAIN PHOTO — FULL IMAGE, NO CROPPING */
 
 .amanda-photo {
   display:block;
@@ -352,7 +357,6 @@ nav a:hover {color:var(--green)}
   background:var(--panel);
   border:1px solid var(--line);
   overflow:hidden;
-  min-width:0;
 }
 
 .video-frame {
@@ -382,76 +386,36 @@ nav a:hover {color:var(--green)}
 .video-info p {
   color:var(--muted);
   font-size:12px;
-  margin-top:12px;
 }
 
-.video-info p a {color:var(--green)}
-.video-info p a:hover {text-decoration:underline}
+.video-link {
+  display:inline-block;
+  margin-top:12px;
+  color:var(--green);
+  font:10px 'DM Mono',monospace;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
 
-/* EMPTY NEWSROOM */
+.video-link:hover {text-decoration:underline}
 
-.empty-newsroom {
+/* NEWSROOM */
+
+.empty-message {
   background:var(--panel);
   border:1px solid var(--line);
   padding:35px;
   text-align:center;
-}
-
-.empty-newsroom h3 {
-  font:25px 'Playfair Display',serif;
-  margin-bottom:9px;
-}
-
-.empty-newsroom p {
   color:var(--muted);
-  font-size:13px;
+  font-size:14px;
 }
 
-/* NEWSLETTER */
-
-.newsletter {
-  background:var(--panel);
-  border:1px solid var(--line);
-  padding:35px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:30px;
-  align-items:center;
-}
-
-.newsletter h2 {
-  font:34px 'Playfair Display',serif;
-  margin:8px 0;
-}
-
-.newsletter p {
-  color:var(--muted);
-  font-size:13px;
-}
-
-.newsletter-form {
-  display:flex;
-  gap:8px;
-}
-
-.newsletter-form input {
-  min-width:0;
-  flex:1;
-  padding:13px;
-  color:var(--white);
-  background:#101310;
-  border:1px solid var(--line);
-  outline:none;
-}
-
-.newsletter-form input:focus {border-color:var(--green)}
-
-.newsletter-form button {
-  border:0;
-  background:var(--green);
-  color:#101710;
-  padding:12px 17px;
+.empty-message span {
+  display:block;
+  color:var(--green);
   font:11px 'DM Mono',monospace;
+  letter-spacing:2px;
+  margin-bottom:12px;
 }
 
 /* FOOTER */
@@ -488,7 +452,6 @@ footer {
   .hero-grid {grid-template-columns:1fr}
   .hero-main {min-height:330px;padding:25px}
   .video-grid {grid-template-columns:1fr}
-  .newsletter {grid-template-columns:1fr;padding:25px}
   .header-note {display:none}
   nav {gap:16px}
   .amanda-photo-frame {aspect-ratio:16 / 9}
@@ -499,16 +462,11 @@ footer {
   .search-area {flex-direction:column}
   .search-area button {width:100%}
   .amanda-content {padding:22px}
-  .newsletter-form {flex-direction:column}
-  .newsletter-form button {padding:14px}
-  .empty-newsroom {padding:25px 18px}
 }
 </style>
 </head>
 
 <body>
-
-<!-- TOP LINE -->
 
 <div class="topline">
   <div class="container topline-inner">
@@ -517,11 +475,8 @@ footer {
   </div>
 </div>
 
-<!-- HEADER -->
-
 <header>
   <div class="container">
-
     <div class="header-main">
       <div>
         <a href="#" class="logo">MIDNIGHT<span>.</span>NEWS</a>
@@ -541,27 +496,19 @@ footer {
       <a href="#technology">Technology</a>
       <a href="#videos">Watch</a>
     </nav>
-
   </div>
 </header>
 
 <main>
 
-<!-- HERO -->
-
 <section class="hero container">
-
   <div class="section-label">The daily edition</div>
 
   <div class="hero-grid">
 
     <div class="hero-main">
       <div class="eyebrow">The world, without the noise</div>
-
-      <h1>
-        Stories worth your <span class="green">time.</span>
-      </h1>
-
+      <h1>Stories worth your <span class="green">time.</span></h1>
       <p>
         A considered look at the people, places, ideas and moments
         shaping the world around us.
@@ -588,11 +535,9 @@ footer {
             id="searchInput"
             type="search"
             placeholder="Search stories..."
-            aria-label="Search stories">
-
-          <button type="button" onclick="searchStories()">
-            Search
-          </button>
+            aria-label="Search stories"
+          >
+          <button type="button" onclick="searchStories()">Search</button>
         </div>
       </div>
 
@@ -600,7 +545,7 @@ footer {
   </div>
 </section>
 
-<!-- AMANDA KING FEATURE -->
+<!-- FEATURED STORY -->
 
 <section class="section container" id="latest">
 
@@ -615,29 +560,25 @@ footer {
   <article class="amanda-feature">
 
     <div class="amanda-photo-frame">
-
       <img
         class="amanda-photo-backdrop"
         src="./amanda-king.png"
         alt=""
-        aria-hidden="true">
+        aria-hidden="true"
+      >
 
       <img
         class="amanda-photo"
         src="./amanda-king.png"
-        alt="Amanda King at an outdoor event">
-
+        alt="Amanda King at an outdoor event"
+      >
     </div>
 
     <div class="amanda-content">
 
-      <div class="eyebrow">
-        Travel · People · Inspiration
-      </div>
+      <div class="eyebrow">Travel · People · Inspiration</div>
 
-      <h2>
-        MY FAVOURITE TRAVEL INFLUENCER — AMANDA KING
-      </h2>
+      <h2>MY FAVOURITE TRAVEL INFLUENCER — AMANDA KING</h2>
 
       <p>
         Travel is more than visiting beautiful places. It is about
@@ -656,15 +597,13 @@ footer {
         “The world is full of places waiting to become your favourite.”
       </div>
 
-      <div class="meta">
-        A MIDNIGHT NEWS EDITORIAL FEATURE
-      </div>
+      <div class="meta">A MIDNIGHT NEWS EDITORIAL FEATURE</div>
 
     </div>
   </article>
 </section>
 
-<!-- VIDEO SECTION -->
+<!-- VIDEOS -->
 
 <section class="section container" id="videos">
 
@@ -683,7 +622,7 @@ footer {
       <div class="video-frame">
         <iframe
           src="https://www.youtube-nocookie.com/embed/kCeeTUSm4eo"
-          title="Behind The Scenes as EMIRATES CABIN CREW - Shanghai Vlog"
+          title="Behind The Scenes as Emirates Cabin Crew - Shanghai Vlog"
           loading="eager"
           referrerpolicy="strict-origin-when-cross-origin"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -693,19 +632,15 @@ footer {
 
       <div class="video-info">
         <div class="eyebrow">Travel · Behind the scenes</div>
+        <h3>Behind The Scenes as EMIRATES CABIN CREW - Shanghai Vlog</h3>
+        <p>Featured video</p>
 
-        <h3>
-          Behind The Scenes as EMIRATES CABIN CREW - Things you DONT see as a Passenger ✨ Shanghai Vlog ✨
-        </h3>
-
-        <p>
-          <a
-            href="https://www.youtube.com/watch?v=kCeeTUSm4eo"
-            target="_blank"
-            rel="noopener">
-            Watch on YouTube ↗
-          </a>
-        </p>
+        <a
+          class="video-link"
+          href="https://www.youtube.com/watch?v=kCeeTUSm4eo"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Watch on YouTube ↗</a>
       </div>
 
     </article>
@@ -725,17 +660,15 @@ footer {
 
       <div class="video-info">
         <div class="eyebrow">Travel · Watchlist</div>
-
         <h3>Featured travel video</h3>
+        <p>Featured video</p>
 
-        <p>
-          <a
-            href="https://www.youtube.com/watch?v=_-b3kdiSETI"
-            target="_blank"
-            rel="noopener">
-            Watch on YouTube ↗
-          </a>
-        </p>
+        <a
+          class="video-link"
+          href="https://www.youtube.com/watch?v=_-b3kdiSETI"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Watch on YouTube ↗</a>
       </div>
 
     </article>
@@ -747,10 +680,6 @@ footer {
 
 <section class="section container" id="world">
 
-  <div id="culture"></div>
-  <div id="lifestyle"></div>
-  <div id="technology"></div>
-
   <div class="section-heading">
     <div>
       <div class="section-label">03 — Around the world</div>
@@ -759,64 +688,14 @@ footer {
     <p>THE NEWSROOM</p>
   </div>
 
-  <div class="empty-newsroom">
-    <div class="eyebrow">THE NEWSROOM</div>
-
-    <h3>New stories are on their way.</h3>
-
-    <p>
-      Our next edition is being prepared. Check back soon for
-      stories worth your time.
-    </p>
+  <div class="empty-message" id="emptyMessage">
+    <span>THE NEWSROOM</span>
+    New stories are on their way.
   </div>
 
-  <p
-    id="emptyMessage"
-    class="meta"
-    style="margin-top:15px;display:none;"
-    aria-live="polite">
-    No published stories yet.
-  </p>
-
-</section>
-
-<!-- NEWSLETTER -->
-
-<section class="section container">
-
-  <div class="newsletter">
-
-    <div>
-      <div class="eyebrow">The midnight letter</div>
-
-      <h2>A little news, thoughtfully delivered.</h2>
-
-      <p>
-        A quiet corner of your inbox for stories worth reading.
-      </p>
-    </div>
-
-    <form class="newsletter-form" onsubmit="subscribe(event)">
-
-      <input
-        type="email"
-        id="emailInput"
-        placeholder="Your email address"
-        aria-label="Your email address"
-        required>
-
-      <button type="submit">SUBSCRIBE</button>
-
-    </form>
-
-  </div>
-
-  <p
-    id="newsletterMessage"
-    class="meta"
-    style="margin-top:12px"
-    aria-live="polite">
-  </p>
+  <div id="culture"></div>
+  <div id="lifestyle"></div>
+  <div id="technology"></div>
 
 </section>
 
@@ -846,7 +725,6 @@ footer {
 /* TOKYO CLOCK */
 
 function updateClock() {
-
   const time = new Intl.DateTimeFormat('en-GB', {
     timeZone:'Asia/Tokyo',
     hour:'2-digit',
@@ -865,7 +743,6 @@ setInterval(updateClock, 1000);
 /* SEARCH */
 
 function searchStories() {
-
   const query = document
     .getElementById('searchInput')
     .value
@@ -873,39 +750,21 @@ function searchStories() {
 
   const message = document.getElementById('emptyMessage');
 
-  if (query.length > 0) {
-    message.style.display = 'block';
-    message.textContent =
-      'No published stories yet. Check back for the next edition.';
-  } else {
-    message.style.display = 'none';
-  }
+  message.innerHTML = query
+    ? '<span>THE NEWSROOM</span>No published stories found for that search yet.'
+    : '<span>THE NEWSROOM</span>New stories are on their way.';
 
   document.getElementById('world').scrollIntoView({
     behavior:'smooth'
   });
 }
 
-document
-  .getElementById('searchInput')
+document.getElementById('searchInput')
   .addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
       searchStories();
     }
   });
-
-
-/* NEWSLETTER DEMO */
-
-function subscribe(event) {
-
-  event.preventDefault();
-
-  document.getElementById('newsletterMessage').textContent =
-    'Thank you! This demo form is not connected to a mailing service yet.';
-
-  document.getElementById('emailInput').value = '';
-}
 
 </script>
 
